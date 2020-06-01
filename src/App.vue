@@ -1,6 +1,38 @@
 <template>
   <div id="app">
     <div class="container">
+      <div>
+         <v-fa icon="info-circle" size="2x"
+         id="show-btn"
+         class ="mb-4"
+         @click="$bvModal.show('bv-modal-example')"
+         style="float:right"/>
+
+        <b-modal id="bv-modal-example" hide-footer>
+          <template v-slot:modal-title>
+            Information
+          </template>
+          <div class="d-block p-2">
+            <h3 class="border-bottom py-2">
+            <v-fa icon="info-circle"/>
+            このアプリについて
+            </h3>
+            <p>このアプリでは、13項目の質問に答えるだけで，自分が体質的にお酒に強いかを判定することができます。</p>
+
+            <p>最高点は<span style="font-weight:bold;">27</span>点，最低点は<span style="font-weight:bold;">-45</span>点で0点以上だとお酒に強く，そうでなければお酒に弱いと判定が下されます。</p>
+
+            <h3 class="border-bottom py-2">
+              <v-fa icon="info-circle"/>
+              注意事項
+              </h3>
+              <p>本アプリは、体質を測るためのものであり決して人の優劣をつけるものではございません。</p>
+              <p>このテストの結果が誰かの生活の指針になれば幸いです。</p>
+          </div>
+          <b-button class="mt-5" block @click="$bvModal.hide('bv-modal-example')" variant="outline-info">Close Me</b-button>
+        </b-modal>
+      </div>
+
+
 
       <!--アラートバルーン-->
       <template v-if="alert">
@@ -19,17 +51,17 @@
         </div>
       </template>
 
-      <!---->
+      <!--アンケートゾーン-->
       <form method="post">
         <div class="input-group mb-4">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Name</span>
+          <span class="input-group-text" id="inputGroup-sizing-sm">Your name</span>
         </div>
           <input id ="name" type="text" name="name" class="form-control" v-model ="name">
         </div>
 
-        <table class="table table-hover  table-bordered">
-          <thead class="table-dark">
+        <table class="table table-hover">
+          <thead class="table-success">
             <tr>
               <th>No</th>
               <th>症状</th>
@@ -153,12 +185,23 @@
 
     <div class ="container">
       <template v-if ="!validation">
-        <button v-on:click ="display_alert();" class="btn btn-success btn-lg  col-5">Calculate!</button>
+        <b-button
+          v-on:click ="display_alert();"
+          class="btn btn-lg col-5"
+          variant="outline-success"
+          >Calculate!</b-button>
       </template>
       <template v-else>
-        <button v-on:click ="sum(); display();" class="btn btn-success btn-lg  col-5">Calculate!</button>
+        <b-button
+          v-on:click ="sum();display();"
+          class="btn btn-lg col-5"
+          variant="outline-success">Calculate!</b-button>
       </template>
-      <button type="reset" value ="リセット" v-on:click="pop" class="btn btn-danger btn-lg  col-5 m-4">Reset</button>
+      <b-button type="reset"
+        value ="リセット"
+        v-on:click="pop"
+        class="btn btn-lg col-5 m-4"
+        variant="outline-danger">Reset</b-button>
     </div>
 
 
@@ -170,10 +213,9 @@
       <template class="heavy" v-if="totalScore > 0">
         <div class="card mb-3 border-success">
           <div class="card-header bg-success text-white ">{{name}}さんの診断結果</div>
-          <div class="card-body">
+          <div class="card-body" style="text-align:left;">
             <h4 class="card-title text-success">アルコール感受性スコア: {{totalScore}}点</h4>
-            <p class="card-text">お酒に強い体質をお持ちのようです！</p>
-            <p class="card-text">お酒は快適に飲めますが，くれぐれも飲み過ぎないように！</p>
+            <p class="card-text">お酒に強い体質をお持ちのようです！<br>お酒は快適に飲めますが，くれぐれも飲み過ぎないように！</p>
           </div>
         </div>
       </template>
@@ -181,10 +223,10 @@
       <template v-else-if ="totalScore <=0">
         <div class="card mb-3 border-danger">
           <div class="card-header bg-danger text-white">{{name}}さんの診断結果</div>
-          <div class="card-body">
+          <div class="card-body" style="text-align:left;">
             <h4 class="card-title text-danger">アルコール感受性スコア: {{totalScore}}点</h4>
             <p class="card-text">どうやらお酒に弱いみたいです…(´・ω・｀)</p>
-            <p class="card-text">でも気を落とさないで！飲めないのは生まれつきの体質で，引け目を感じることはありません！</p>
+            <p class="card-text">でも気を落とさないで！<br>飲めないのは生まれつきの体質で，引け目を感じることはありません！</p>
             <p class="card-text">堂々と飲めないことを宣言して，すすめられてもキッパリ断ってください．</p>
           </div>
         </div>
