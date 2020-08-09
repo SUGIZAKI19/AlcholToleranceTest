@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-    <img src="@/assets/scouter_logo.png">
+    <img src="@/assets/scouter_logo_opaque.png" class="mb-5">
 
     <div style="text-align:left; max-width:720px; margin:auto;">
       <h3 class="border-bottom py-2">
