@@ -1,6 +1,6 @@
 
 
-<div style="text-align:center;">
+<div align="center">
     <img src="src/assets/scouter_logo_opaque.png"style="width:350px;"></img>
     <h1>Liver Scouter</h1>
     <img src="src/assets/logo.png" style="width:90px; margin-right:20px;">
