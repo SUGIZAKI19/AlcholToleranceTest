@@ -1,15 +1,9 @@
 
-
-<div align="center">
-    <img src="src/assets/scouter_logo_opaque.png"style="width:350px;"></img>
-    <h1>Liver Scouter</h1>
-    <img src="src/assets/logo.png" style="width:90px; margin-right:20px;">
-    <img src="src/assets/bootstrap-stack.png" style="width:90px;margin-right:20px;">
-    <img src="src/assets/HTML5_Badge_256.png" style="width:90px;">
-</div>
-
 # 🍺 Description
-たったの13項目の質問に答えるだけで，お酒の強さが数値化されるスカウター的なもの。得点が０より大きければ酒豪で，マイナスなら下戸と判定されます。
+<img width="375" alt="year" src="https://user-images.githubusercontent.com/43713182/122217121-11205c00-cee8-11eb-8b87-7d05f3ec6cde.png">
+
+たったの13項目の質問に答えると、-45~27の範囲でお酒の強さが得点化されます。
+得点が０より大きければ酒豪、マイナスなら下戸と判定されます。
 
 # 🍺 App URL
 https://alcohol-test.netlify.app/
